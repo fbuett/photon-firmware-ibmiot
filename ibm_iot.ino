@@ -94,10 +94,11 @@ void blinkLED(const unsigned int color){
 void callback(char* topic, byte* payload, unsigned int length) {
     // MQTT messages received here in topic and payload
     blinkLED(BLUE);
+
     Serial.println("Subscription event received!");
 
-    // set LED back to GREEN
-    RGB.color(0,255,0);
+    // Publish message on request
+    sendMessage();
 }
 
 /*
